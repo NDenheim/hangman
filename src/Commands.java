@@ -32,12 +32,14 @@ public class Commands {
             int chosenDifficulty = myScanner.nextInt();
 
             if (chosenDifficulty == 1) {
-                play.runEasyGame();
+//                play.runEasyGame();
+                play.runGame();
             } else if (chosenDifficulty == 2) {
-                play.runStandardGame();
+//                play.runStandardGame();
+                play.runGame(10, "standard");
             } else if (chosenDifficulty == 3) {
-                play.runHardGame();
-//                play.runGameEndCommands();
+//                play.runHardGame();
+                play.runGame(6, "hard");
             }
         } else {
             System.out.println("Thanks for stopping by!");

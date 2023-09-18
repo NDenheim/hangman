@@ -17,70 +17,61 @@ public class Gameplay {
     };
     private final Scanner scanner = new Scanner(System.in);
 
-    public void runEasyGame(){
-        gameReset(100);
 
+
+    public void runGame(){
+        gameReset();
         showHiddenWord();
 
-        while (hiddenWord.toString().contains("_") && livesRemaining > 0){
-            replace("standard");
-//            hangman.drawStandardHangman(livesRemaining);
+        while (hiddenWord.toString().contains("_")){
+            replace();
             printGameStats();
-            if (livesRemaining == 0){
-                System.out.println("\nSorry, you ran out of lives! The word was "+ chosenWord + "! \n");
-                runGameEndCommands();
-            }
         }
 
         if (!hiddenWord.toString().contains("_")){
-            System.out.println("CONGRATS!! You completed the level!");
+            System.out.println("CONGRATS!! You completed the level! If you fancy a challenge, try a level with limited lives.");
             runGameEndCommands();
         }
     }
 
-    public void runStandardGame(){
-        gameReset(10);
 
+    public void runGame(int startingLives, String chosenHangman){
+        gameReset(startingLives);
         showHiddenWord();
 
         while (hiddenWord.toString().contains("_") && livesRemaining > 0){
-            replace("standard");
-//            hangman.drawStandardHangman(livesRemaining);
-            printGameStats();
-            if (livesRemaining == 0){
-                System.out.println("\nSorry, you ran out of lives! The word was "+ chosenWord + "! \n");
-                runGameEndCommands();
+            replace(chosenHangman);
+            printGameStats(livesRemaining);
+        }
+
+        endGame();
+        // QUIT DOES NOT WORK!!!
+    }
+
+    private void replace() {
+        System.out.println("Select a letter from a to z");
+        char chosenChar = charScanner.next().toLowerCase().charAt(0);
+
+        for (int i = 0; i < chosenWord.length() ; i++) {
+            if (chosenWord.charAt(i) == chosenChar){
+                hiddenWord.setCharAt((i*2), chosenChar);
             }
         }
 
-        if (!hiddenWord.toString().contains("_")){
-            System.out.println("CONGRATS!! You completed the level!");
-            runGameEndCommands();
+        if (!(chosenChar+"").matches("[a-zA-Z]+")){
+            System.out.println("\nUmmmm that's not a letter...Try again!");
+        } else if (!chosenWord.contains(chosenChar+"") && !lettersGuessed.contains(chosenChar)) {
+            System.out.println("\n" + "Sorry, that's not in the word!" + "\n");
+        } else if (chosenWord.contains(chosenChar+"") && !lettersGuessed.contains(chosenChar)){
+            System.out.println("\n" + "It's in!");
+        }
+
+        if (!lettersGuessed.contains(chosenChar) && (chosenChar+"").matches("[a-zA-Z]+")){
+            lettersGuessed.add(chosenChar);
+        } else if (lettersGuessed.contains(chosenChar)){
+            System.out.println("\nYou've tried that already!");
         }
     }
-
-    public void runHardGame(){
-        gameReset(6);
-
-        showHiddenWord();
-
-        while (hiddenWord.toString().contains("_") && livesRemaining > 0){
-            replace("hard");
-//            hangman.drawHardHangman(livesRemaining);
-            printGameStats();
-
-            if (livesRemaining == 0){
-                System.out.println("Sorry, you ran out of lives! The word was "+ chosenWord + "!");
-                runGameEndCommands();
-            }
-        }
-
-        if (!hiddenWord.toString().contains("_")){
-            System.out.println("CONGRATS!! You completed the level with " + livesRemaining + " lives remaining!");
-            runGameEndCommands();
-        }
-    }
-
 
     private void replace(String chosenHangman) {
         System.out.println("Select a letter from a to z");
@@ -93,7 +84,7 @@ public class Gameplay {
         }
 
         if (!(chosenChar+"").matches("[a-zA-Z]+")){
-            System.out.println("\nUmmmm that's not a letter...Try again");
+            System.out.println("\nUmmmm that's not a letter...Try again!");
         } else if (!chosenWord.contains(chosenChar+"") && !lettersGuessed.contains(chosenChar)) {
             livesRemaining--;
             System.out.println("\n" + "Sorry, that's not in the word!" + "\n");
@@ -109,7 +100,15 @@ public class Gameplay {
         }
     }
 
-    public void gameReset(int startingLives){
+    private void gameReset(){
+        chosenWord = standard.selectWord();
+        hiddenWord = new StringBuilder(chosenWord.length());
+        lettersGuessed = new ArrayList<>();
+        hangman = new Hangman();
+        System.out.println("\nLET'S PLAY!!\n");
+    }
+
+    private void gameReset(int startingLives){
         chosenWord = standard.selectWord();
         hiddenWord = new StringBuilder(chosenWord.length());
         livesRemaining = startingLives;
@@ -119,9 +118,9 @@ public class Gameplay {
     }
 
     public void showHiddenWord(){
-        System.out.println(chosenWord);
+//        System.out.println(chosenWord);
         hiddenWord.append("_ ".repeat(chosenWord.length()));
-        System.out.println(hiddenWord);
+        System.out.println(hiddenWord + "\n");
     }
 
     public void runGameEndCommands(){
@@ -147,7 +146,26 @@ public class Gameplay {
 
     }
 
+    public void endGame(){
+        while (hiddenWord.toString().contains("_") && livesRemaining >= 0){
+            if (livesRemaining == 0){
+                System.out.println("Sorry, you ran out of lives! The word was "+ chosenWord + ".\n");
+                runGameEndCommands();
+            }
+        }
+
+        if (!hiddenWord.toString().contains("_")){
+            System.out.println("CONGRATS!! You completed the level with " + livesRemaining + " lives remaining!");
+            runGameEndCommands();
+        }
+    }
+
     protected void printGameStats(){
+        System.out.println("\n" + hiddenWord);
+        System.out.println("Letters guessed: " + lettersGuessed + "\n");
+    }
+
+    protected void printGameStats(int livesRemaining){
         System.out.println("\n" + hiddenWord);
         System.out.println("Lives remaining: " + livesRemaining);
         System.out.println("Letters guessed: " + lettersGuessed + "\n");
@@ -157,3 +175,16 @@ public class Gameplay {
         System.out.println(message);
     }
 }
+
+//    public void runHardGame(){
+//        gameReset(6);
+//
+//        showHiddenWord();
+//
+//        while (hiddenWord.toString().contains("_") && livesRemaining > 0){
+//            replace("hard");
+//            printGameStats();
+//        }
+//
+//        endGame();
+//    }

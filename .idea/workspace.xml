@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="34455d75-2af1-466e-b4dc-db44540d8591" name="Changes" comment="Hangman diagram added for standard level plus end commands">
+    <list default="true" id="34455d75-2af1-466e-b4dc-db44540d8591" name="Changes" comment="Added easy and hard levels and additional functionality added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Commands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Commands.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Gameplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gameplay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Hangman.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Hangman.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WordStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WordStore.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +23,20 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "NDenheim"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="7043c08c-626b-4904-a1c3-edeb2e22f8cf" />
+        <option name="url" value="https://github.com/NDenheim/hangman.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
@@ -82,12 +93,21 @@
       <option name="project" value="LOCAL" />
       <updated>1695044454149</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added easy and hard levels and additional functionality added">
+      <option name="closed" value="true" />
+      <created>1695053559956</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1695053559956</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Functional guess the word game for standard level" />
     <MESSAGE value="Hangman diagram added for standard level plus end commands" />
-    <option name="LAST_COMMIT_MESSAGE" value="Hangman diagram added for standard level plus end commands" />
+    <MESSAGE value="Added easy and hard levels and additional functionality added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added easy and hard levels and additional functionality added" />
   </component>
 </project>
