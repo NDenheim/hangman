@@ -3,8 +3,8 @@ import java.util.Random;
 
 public class WordStore {
 
-    private static ArrayList<String> words = new ArrayList<>();
-    private static Random rand = new Random();
+    private static final ArrayList<String> words = new ArrayList<>();
+    private static final Random rand = new Random();
 
     static{
         words.add("alphabet");
@@ -19,7 +19,20 @@ public class WordStore {
         words.add("jumper");
         words.add("kangaroo");
         words.add("laptop");
-
+        words.add("monopoly");
+        words.add("nutrients");
+        words.add("oranges");
+        words.add("petulant");
+        words.add("queen");
+        words.add("rhinoceros");
+        words.add("staples");
+        words.add("tricycle");
+        words.add("umbrella");
+        words.add("volcano");
+        words.add("wallowing");
+        words.add("xylophone");
+        words.add("yacht");
+        words.add("zebra");
     }
 
     public String selectWord(){

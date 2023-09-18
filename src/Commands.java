@@ -1,16 +1,15 @@
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Commands {
-    private static String[] commands = {
+    private static final String[] commands = {
             "Play game",
             "Quit"
     };
 
-    private static String[] levels = {
-            "Easy",
-            "Standard",
-            "Hard"
+    private static final String[] levels = {
+            "Easy (play without losing lives)",
+            "Standard (start with 10 lives)",
+            "Hard (start with 6 lives)"
     };
 
     private static final Scanner myScanner = new Scanner(System.in);
@@ -32,12 +31,15 @@ public class Commands {
             chooseLevel();
             int chosenDifficulty = myScanner.nextInt();
 
-            if (chosenDifficulty == 2) {
-            play.runStandardGame();
-//            numberedCommands();
-//            chosenValue = myScanner.nextInt();
+            if (chosenDifficulty == 1) {
+                play.runEasyGame();
+            } else if (chosenDifficulty == 2) {
+                play.runStandardGame();
+            } else if (chosenDifficulty == 3) {
+                play.runHardGame();
+//                play.runGameEndCommands();
             }
-        } else if (chosenValue == 2 ) {
+        } else {
             System.out.println("Thanks for stopping by!");
         }
     }
@@ -47,7 +49,7 @@ public class Commands {
     }
 
     public static void numberedCommands(){
-        System.out.println("Please select one of the following:");
+        System.out.println("\nPlease select one of the following:");
         for (int i = 0; i < commands.length; i++) {
             printMessage((i+1) + ": " + commands[i]);
         }
@@ -55,7 +57,7 @@ public class Commands {
     }
 
     public static void chooseLevel() {
-        System.out.println("Choose a difficulty");
+        System.out.println("\nChoose a difficulty");
         for (int i = 0; i < levels.length; i++) {
             printMessage((i+1) + ": " + levels[i]);
         }
@@ -64,52 +66,4 @@ public class Commands {
     protected static void printMessage(String message) {
         System.out.println(message);
     }
-
-
-//
-//    private static final String[] USER_COMMANDS = {
-//            "Play as visitor",
-//            "Play as Zoo Keeper",
-//            "Leave zoo"
-//    };
-//
-//    public UserCommandRunner(Zoo zoo) {
-//        super(USER_COMMANDS, "User");
-//        this.zoo = zoo;
-//    }
-//
-//    protected void runZooKeeperCommands() {
-//        AnimalCommandRunner commandRunner = new ZooKeeperAnimalCommandRunner(zoo, UserType.zooKeeper);
-//        commandRunner.runCommands();
-//    }
-//
-//    protected void runVisitorCommands() {
-//        AnimalCommandRunner commandRunner = new VisitorAnimalCommandRunner(zoo, UserType.visitor);
-//        commandRunner.runCommands();
-//    }
-//
-//    @Override
-//    protected void beforeCommands() {
-//    }
-//
-//    @Override
-//    protected boolean handleUserSelection(int userSelection) {
-//        if( userSelection == USER_COMMANDS.length ) {
-//            System.out.println("Hope to see you again soon!");
-//            zoo.shutdownZoo();
-//            return false;
-//        }
-//
-//        System.out.println("Performing user selection " + userSelection);
-//        switch (userSelection) {
-//            case 1:
-//                runVisitorCommands();
-//                break;
-//            case 2:
-//                runZooKeeperCommands();
-//                break;
-//        }
-//
-//        return true;
-
 }
