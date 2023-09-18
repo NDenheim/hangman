@@ -2,24 +2,23 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Commands {
-    private String[] commands = {
+    private static String[] commands = {
             "Play game",
             "Quit"
     };
 
-    private String[] levels = {
+    private static String[] levels = {
             "Easy",
             "Standard",
             "Hard"
     };
 
-    private Scanner myScanner = new Scanner(System.in);
+    private static final Scanner myScanner = new Scanner(System.in);
 
-    Gameplay play = new Gameplay();
+    private static final Gameplay play = new Gameplay();
 
 
-    public void runCommands(){
-        intro();
+    public static void runCommands(){
         numberedCommands();
 
         int chosenValue = myScanner.nextInt();
@@ -35,31 +34,34 @@ public class Commands {
 
             if (chosenDifficulty == 2) {
             play.runStandardGame();
+//            numberedCommands();
+//            chosenValue = myScanner.nextInt();
             }
         } else if (chosenValue == 2 ) {
             System.out.println("Thanks for stopping by!");
         }
     }
 
-    public void intro(){
+    public static void intro(){
         System.out.println("Welcome to hangman!");
     }
 
-    public void numberedCommands(){
-        System.out.println("Please select an option from the following:");
+    public static void numberedCommands(){
+        System.out.println("Please select one of the following:");
         for (int i = 0; i < commands.length; i++) {
             printMessage((i+1) + ": " + commands[i]);
         }
+
     }
 
-    public void chooseLevel() {
+    public static void chooseLevel() {
         System.out.println("Choose a difficulty");
         for (int i = 0; i < levels.length; i++) {
             printMessage((i+1) + ": " + levels[i]);
         }
     }
 
-    protected void printMessage(String message) {
+    protected static void printMessage(String message) {
         System.out.println(message);
     }
 
