@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="34455d75-2af1-466e-b4dc-db44540d8591" name="Changes" comment="Added easy and hard levels and additional functionality added">
+    <list default="true" id="34455d75-2af1-466e-b4dc-db44540d8591" name="Changes" comment="Improved code readability by including overloading">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Commands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Commands.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Gameplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gameplay.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -101,13 +100,22 @@
       <option name="project" value="LOCAL" />
       <updated>1695053559956</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Improved code readability by including overloading">
+      <option name="closed" value="true" />
+      <created>1695070069667</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1695070069667</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Functional guess the word game for standard level" />
     <MESSAGE value="Hangman diagram added for standard level plus end commands" />
     <MESSAGE value="Added easy and hard levels and additional functionality added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added easy and hard levels and additional functionality added" />
+    <MESSAGE value="Improved code readability by including overloading" />
+    <option name="LAST_COMMIT_MESSAGE" value="Improved code readability by including overloading" />
   </component>
 </project>

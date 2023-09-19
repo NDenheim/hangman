@@ -147,12 +147,11 @@ public class Gameplay {
     }
 
     public void endGame(){
-        while (hiddenWord.toString().contains("_") && livesRemaining >= 0){
-            if (livesRemaining == 0){
+        if (hiddenWord.toString().contains("_") && livesRemaining == 0){
                 System.out.println("Sorry, you ran out of lives! The word was "+ chosenWord + ".\n");
                 runGameEndCommands();
-            }
         }
+
 
         if (!hiddenWord.toString().contains("_")){
             System.out.println("CONGRATS!! You completed the level with " + livesRemaining + " lives remaining!");
