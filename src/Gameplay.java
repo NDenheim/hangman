@@ -29,7 +29,7 @@ public class Gameplay {
         }
 
         if (!hiddenWord.toString().contains("_")){
-            System.out.println("CONGRATS!! You completed the level! If you fancy a challenge, try a level with limited lives.");
+            System.out.println("CONGRATS!! You completed the level after " + lettersGuessed.size() + " guesses! If you fancy a challenge, try a level with limited lives.");
             runGameEndCommands();
         }
     }
@@ -45,7 +45,6 @@ public class Gameplay {
         }
 
         endGame();
-        // QUIT DOES NOT WORK!!!
     }
 
     private void replace() {
@@ -161,16 +160,16 @@ public class Gameplay {
 
     protected void printGameStats(){
         System.out.println("\n" + hiddenWord);
-        System.out.println("Letters guessed: " + lettersGuessed + "\n");
+        System.out.println("\nLetters guessed: " + lettersGuessed + "\n");
     }
 
     protected void printGameStats(int livesRemaining){
         System.out.println("\n" + hiddenWord);
-        System.out.println("Lives remaining: " + livesRemaining);
+        System.out.println("\nLives remaining: " + livesRemaining);
         System.out.println("Letters guessed: " + lettersGuessed + "\n");
     }
 
-    protected void printMessage(String message) {
+    protected static void printMessage(String message) {
         System.out.println(message);
     }
 }
@@ -187,3 +186,11 @@ public class Gameplay {
 //
 //        endGame();
 //    }
+
+
+//    String chosenChar = charScanner.next();
+//        if(chosenChar.equalsIgnoreCase("quit")){
+//                System.out.println("Thanks for stopping by! The answer was " + chosenWord);
+//                } else {
+//                chosenChar = charScanner.next().toLowerCase().charAt(0);
+//                }

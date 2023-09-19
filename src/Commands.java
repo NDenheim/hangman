@@ -7,9 +7,9 @@ public class Commands {
     };
 
     private static final String[] levels = {
-            "Easy (play without losing lives)",
-            "Standard (start with 10 lives)",
-            "Hard (start with 6 lives)"
+            "Easy       ->   Play without losing lives",
+            "Standard   ->   Start with 10 lives",
+            "Hard       ->   Start with 6 lives"
     };
 
     private static final Scanner myScanner = new Scanner(System.in);
