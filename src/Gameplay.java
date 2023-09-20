@@ -118,7 +118,6 @@ public class Gameplay {
     }
 
     public void gameReset(){
-//        chosenWord = standard.selectWord();
         setChosenWord(standard.selectWord());
         hiddenWord = new StringBuilder(chosenWord.length());
         lettersGuessed = new ArrayList<>();
@@ -127,10 +126,8 @@ public class Gameplay {
     }
 
     public void gameReset(int startingLives){
-//        chosenWord = standard.selectWord();
         setChosenWord(standard.selectWord());
         hiddenWord = new StringBuilder(chosenWord.length());
-//        livesRemaining = startingLives;
         setLivesRemaining(startingLives);
         lettersGuessed = new ArrayList<>();
         hangman = new Hangman();
@@ -138,7 +135,6 @@ public class Gameplay {
     }
 
     public StringBuilder showHiddenWord(){
-//        System.out.println(chosenWord);
         hiddenWord.append("_ ".repeat(chosenWord.length()));
         System.out.println(hiddenWord + "\n");
         return hiddenWord;
@@ -170,12 +166,10 @@ public class Gameplay {
     public void endGame(){
         if (hiddenWord.toString().contains("_") && livesRemaining == 0){
                 System.out.println(ANSI_RED + "Sorry, you ran out of lives! The word was "+ getChosenWord() + ".\n"+ ANSI_RESET);
-//                runGameEndCommands();
         }
 
         if (!hiddenWord.toString().contains("_")){
             System.out.println(ANSI_GREEN + "CONGRATS!! You completed the level with " + getLivesRemaining() + " lives remaining!"+ ANSI_RESET);
-//            runGameEndCommands();
         }
         runGameEndCommands();
     }
@@ -196,23 +190,3 @@ public class Gameplay {
     }
 }
 
-//    public void runHardGame(){
-//        gameReset(6);
-//
-//        showHiddenWord();
-//
-//        while (hiddenWord.toString().contains("_") && livesRemaining > 0){
-//            replace("hard");
-//            printGameStats();
-//        }
-//
-//        endGame();
-//    }
-
-
-//    String chosenChar = charScanner.next();
-//        if(chosenChar.equalsIgnoreCase("quit")){
-//                System.out.println("Thanks for stopping by! The answer was " + chosenWord);
-//                } else {
-//                chosenChar = charScanner.next().toLowerCase().charAt(0);
-//                }
