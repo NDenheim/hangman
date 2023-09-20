@@ -1,11 +1,12 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.io.*;
 
 public class Gameplay {
 
     private final WordStore standard = new WordStore();
     private String chosenWord;
-    private static int livesRemaining;
+    private int livesRemaining;
     private StringBuilder hiddenWord;
     private final Scanner charScanner = new Scanner(System.in);
     private static Hangman hangman;
@@ -17,7 +18,25 @@ public class Gameplay {
     };
     private final Scanner scanner = new Scanner(System.in);
 
+    public static final String ANSI_GREEN = "\u001B[32m";
+    public static final String ANSI_RED = "\u001B[31m";
+    public static final String ANSI_RESET = "\u001B[0m";
 
+    public String getChosenWord() {
+        return chosenWord;
+    }
+
+    public void setChosenWord(String chosenWord) {
+        this.chosenWord = chosenWord;
+    }
+
+    public int getLivesRemaining() {
+        return livesRemaining;
+    }
+
+    public void setLivesRemaining(int livesRemaining) {
+        this.livesRemaining = livesRemaining;
+    }
 
     public void runGame(){
         gameReset();
@@ -29,11 +48,10 @@ public class Gameplay {
         }
 
         if (!hiddenWord.toString().contains("_")){
-            System.out.println("CONGRATS!! You completed the level after " + lettersGuessed.size() + " guesses! If you fancy a challenge, try a level with limited lives.");
+            System.out.println(ANSI_GREEN + "CONGRATS!! You completed the level after " + lettersGuessed.size() + " guesses! If you fancy a challenge, try a level with limited lives." + ANSI_RESET);
             runGameEndCommands();
         }
     }
-
 
     public void runGame(int startingLives, String chosenHangman){
         gameReset(startingLives);
@@ -99,27 +117,31 @@ public class Gameplay {
         }
     }
 
-    private void gameReset(){
-        chosenWord = standard.selectWord();
+    public void gameReset(){
+//        chosenWord = standard.selectWord();
+        setChosenWord(standard.selectWord());
         hiddenWord = new StringBuilder(chosenWord.length());
         lettersGuessed = new ArrayList<>();
         hangman = new Hangman();
         System.out.println("\nLET'S PLAY!!\n");
     }
 
-    private void gameReset(int startingLives){
-        chosenWord = standard.selectWord();
+    public void gameReset(int startingLives){
+//        chosenWord = standard.selectWord();
+        setChosenWord(standard.selectWord());
         hiddenWord = new StringBuilder(chosenWord.length());
-        livesRemaining = startingLives;
+//        livesRemaining = startingLives;
+        setLivesRemaining(startingLives);
         lettersGuessed = new ArrayList<>();
         hangman = new Hangman();
         System.out.println("\nLET'S PLAY!!\n");
     }
 
-    public void showHiddenWord(){
+    public StringBuilder showHiddenWord(){
 //        System.out.println(chosenWord);
         hiddenWord.append("_ ".repeat(chosenWord.length()));
         System.out.println(hiddenWord + "\n");
+        return hiddenWord;
     }
 
     public void runGameEndCommands(){
@@ -138,7 +160,7 @@ public class Gameplay {
         }
 
         if (chosenValue == 1) {
-            Commands.runCommands();
+            Commands.chooseLevel();
         } else {
             System.out.println("\nThanks for stopping by!");
         }
@@ -147,15 +169,15 @@ public class Gameplay {
 
     public void endGame(){
         if (hiddenWord.toString().contains("_") && livesRemaining == 0){
-                System.out.println("Sorry, you ran out of lives! The word was "+ chosenWord + ".\n");
-                runGameEndCommands();
+                System.out.println(ANSI_RED + "Sorry, you ran out of lives! The word was "+ getChosenWord() + ".\n"+ ANSI_RESET);
+//                runGameEndCommands();
         }
-
 
         if (!hiddenWord.toString().contains("_")){
-            System.out.println("CONGRATS!! You completed the level with " + livesRemaining + " lives remaining!");
-            runGameEndCommands();
+            System.out.println(ANSI_GREEN + "CONGRATS!! You completed the level with " + getLivesRemaining() + " lives remaining!"+ ANSI_RESET);
+//            runGameEndCommands();
         }
+        runGameEndCommands();
     }
 
     protected void printGameStats(){

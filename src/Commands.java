@@ -16,6 +16,9 @@ public class Commands {
 
     private static final Gameplay play = new Gameplay();
 
+    public static void intro(){
+        System.out.println("Welcome to Hangman!");
+    }
 
     public static void runCommands(){
         numberedCommands();
@@ -29,25 +32,10 @@ public class Commands {
 
         if (chosenValue == 1){
             chooseLevel();
-            int chosenDifficulty = myScanner.nextInt();
 
-            if (chosenDifficulty == 1) {
-//                play.runEasyGame();
-                play.runGame();
-            } else if (chosenDifficulty == 2) {
-//                play.runStandardGame();
-                play.runGame(10, "standard");
-            } else if (chosenDifficulty == 3) {
-//                play.runHardGame();
-                play.runGame(6, "hard");
-            }
         } else {
             System.out.println("Thanks for stopping by!");
         }
-    }
-
-    public static void intro(){
-        System.out.println("Welcome to hangman!");
     }
 
     public static void numberedCommands(){
@@ -55,13 +43,22 @@ public class Commands {
         for (int i = 0; i < commands.length; i++) {
             printMessage((i+1) + ": " + commands[i]);
         }
-
     }
 
     public static void chooseLevel() {
-        System.out.println("\nChoose a difficulty");
+        System.out.println("\nChoose a difficulty:");
         for (int i = 0; i < levels.length; i++) {
             printMessage((i+1) + ": " + levels[i]);
+        }
+
+        int chosenDifficulty = myScanner.nextInt();
+
+        if (chosenDifficulty == 1) {
+            play.runGame();
+        } else if (chosenDifficulty == 2) {
+            play.runGame(10, "standard");
+        } else if (chosenDifficulty == 3) {
+            play.runGame(6, "hard");
         }
     }
 
