@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Scanner;
 import java.io.*;
 
@@ -18,9 +19,9 @@ public class Gameplay {
     };
     private final Scanner scanner = new Scanner(System.in);
 
-    public static final String ANSI_GREEN = "\u001B[32m";
-    public static final String ANSI_RED = "\u001B[31m";
-    public static final String ANSI_RESET = "\u001B[0m";
+    private static final String ANSI_GREEN = "\u001B[32m";
+    private static final String ANSI_RED = "\u001B[31m";
+    private static final String ANSI_RESET = "\u001B[0m";
 
     public String getChosenWord() {
         return chosenWord;
@@ -135,6 +136,7 @@ public class Gameplay {
     }
 
     public StringBuilder showHiddenWord(){
+        System.out.println(chosenWord);
         hiddenWord.append("_ ".repeat(chosenWord.length()));
         System.out.println(hiddenWord + "\n");
         return hiddenWord;
@@ -145,17 +147,17 @@ public class Gameplay {
         for (int i = 0; i < endGameCommands.length; i++) {
             printMessage((i+1) + ": " + endGameCommands[i]);
         }
-        int chosenValue = scanner.nextInt();
+        String chosenValue = scanner.next();
 
-        while (chosenValue != 1 && chosenValue != 2){
+        while (!Objects.equals(chosenValue, "1") && !Objects.equals(chosenValue, "2")){
             System.out.println("\nSorry that wasn't one of the options...try again!");
             for (int i = 0; i < endGameCommands.length; i++) {
                 printMessage((i+1) + ": " + endGameCommands[i]);
             }
-            chosenValue = scanner.nextInt();
+            chosenValue = scanner.next();
         }
 
-        if (chosenValue == 1) {
+        if (chosenValue.equals("1")) {
             Commands.chooseLevel();
         } else {
             System.out.println("\nThanks for stopping by!");
