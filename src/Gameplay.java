@@ -136,7 +136,7 @@ public class Gameplay {
     }
 
     public StringBuilder showHiddenWord(){
-        System.out.println(chosenWord);
+
         hiddenWord.append("_ ".repeat(chosenWord.length()));
         System.out.println(hiddenWord + "\n");
         return hiddenWord;

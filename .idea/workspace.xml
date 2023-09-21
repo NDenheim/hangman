@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="34455d75-2af1-466e-b4dc-db44540d8591" name="Changes" comment="Removed commented code">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gameplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gameplay.java" afterDir="false" />
-    </list>
+    <list default="true" id="34455d75-2af1-466e-b4dc-db44540d8591" name="Changes" comment="Minor fix" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -213,7 +210,15 @@
       <option name="project" value="LOCAL" />
       <updated>1695224761584</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Minor fix">
+      <option name="closed" value="true" />
+      <created>1695285086153</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1695285086153</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -225,6 +230,7 @@
     <MESSAGE value="Improved layout of output (added extra spacing)" />
     <MESSAGE value="Added README and other layout changes" />
     <MESSAGE value="Removed commented code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed commented code" />
+    <MESSAGE value="Minor fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Minor fix" />
   </component>
 </project>
